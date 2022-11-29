@@ -15,7 +15,7 @@ public class Customer {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.address = new Address(address.streetName(), address.streetNumber(), address.postalCode(), address.country());
+        this.address = new Address(address.getStreetName(), address.getStreetNumber(), address.getPostalCode(), address.getCountry());
         this.phoneNumber = phoneNumber;
     }
 
