@@ -12,7 +12,7 @@ pipeline {
                 sh 'mvn clean install -DskipTests'
             }
         }
-        stage('DigiBooky') {
+        stage('Order') {
             steps {
                 sh 'mvn -Dmaven.test.failure.ignore=true test'
             }
