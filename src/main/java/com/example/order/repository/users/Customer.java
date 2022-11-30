@@ -1,4 +1,4 @@
-package com.example.order.repository;
+package com.example.order.repository.users;
 
 import java.util.UUID;
 
@@ -9,8 +9,10 @@ public class Customer {
     private final String email;
     private final Address address;
     private final String phoneNumber;
+    private String password;
 
-    public Customer(String firstName, String lastName, String email, Address address, String phoneNumber) {
+    public Customer(String firstName, String lastName, String email, Address address, String phoneNumber, String password) {
+        this.password = password;
         this.customerId = UUID.randomUUID().toString();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -25,6 +27,10 @@ public class Customer {
 
     public String getFirstName() {
         return firstName;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public String getLastName() {

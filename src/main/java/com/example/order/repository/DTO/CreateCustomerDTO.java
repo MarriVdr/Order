@@ -1,6 +1,6 @@
 package com.example.order.repository.DTO;
 
-import com.example.order.repository.Address;
+import com.example.order.repository.users.Address;
 
 public class CreateCustomerDTO {
     private final String firstName;
@@ -8,13 +8,15 @@ public class CreateCustomerDTO {
     private final String email;
     private final Address address;
     private final String phoneNumber;
+    private String password;
 
-    public CreateCustomerDTO(String firstName, String lastName, String email, Address address, String phoneNumber) {
+    public CreateCustomerDTO(String firstName, String lastName, String email, Address address, String phoneNumber, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.address = new Address(address.getStreetName(), address.getStreetNumber(), address.getPostalCode(), address.getCountry());
         this.phoneNumber = phoneNumber;
+        this.password = password;
     }
 
     public String getFirstName() {
@@ -35,5 +37,9 @@ public class CreateCustomerDTO {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

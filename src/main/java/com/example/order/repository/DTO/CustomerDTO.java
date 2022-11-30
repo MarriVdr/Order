@@ -1,8 +1,6 @@
 package com.example.order.repository.DTO;
 
-import com.example.order.repository.Address;
-
-import java.util.UUID;
+import com.example.order.repository.users.Address;
 
 public class CustomerDTO {
     private final String customerId;

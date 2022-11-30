@@ -1,4 +1,4 @@
-package com.example.order.repository;
+package com.example.order.repository.users;
 
 public class Address{
         private String streetName;

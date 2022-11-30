@@ -1,11 +1,11 @@
-package com.example.order.repository;
+package com.example.order.repository.items;
 
 import java.util.UUID;
 
 public class Item {
     private final String itemId;
     private final String name;
-    private final String description;
+    private String description;
     private int price;
     private int amount;
 
@@ -35,5 +35,17 @@ public class Item {
 
     public int getAmount() {
         return amount;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 }

@@ -12,7 +12,7 @@ pipeline {
                 sh 'mvn clean install -DskipTests'
             }
         }
-        stage('Order') {
+        stage('Eurder') {
             steps {
                 sh 'mvn -Dmaven.test.failure.ignore=true test'
             }
