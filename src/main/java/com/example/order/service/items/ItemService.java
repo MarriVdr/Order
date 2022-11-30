@@ -26,7 +26,7 @@ public class ItemService {
         if (itemToAdd.getName() == null) {
             throw new FieldIsEmptyException("Please enter a valid item name.");
         }
-        Item newItem = new Item(itemToAdd.getName(), itemToAdd.getDescription(), itemToAdd.getPrice(), itemToAdd.getAmount());
+        Item newItem = new Item(itemToAdd.getName(), itemToAdd.getDescription(), itemToAdd.getPrice(), itemToAdd.getStockAmount());
         if (itemRepository.containsItem(newItem)) {
             throw new ItemAlreadyExistsException("Item already listed in inventory.");
         }
@@ -50,7 +50,7 @@ public class ItemService {
         Item itemNew = item.get();
         itemNew.setDescription(itemToUpdate.getDescription());
         itemNew.setPrice(itemToUpdate.getPrice());
-        itemNew.setAmount(itemToUpdate.getAmount());
+        itemNew.setStockAmount(itemToUpdate.getAmount());
         return itemMapper.toDTO(itemNew);
     }
 

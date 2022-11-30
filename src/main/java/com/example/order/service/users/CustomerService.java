@@ -1,6 +1,7 @@
 package com.example.order.service.users;
 
 import com.example.order.exceptions.FieldIsEmptyException;
+import com.example.order.exceptions.IdDoesNotExistsException;
 import com.example.order.exceptions.MemberAlreadyExistException;
 import com.example.order.repository.DTO.CustomerDTO;
 import com.example.order.repository.DTO.ItemDTO;
@@ -14,7 +15,7 @@ import java.util.List;
 @Service
 public class CustomerService {
     private CustomerRepository customerRepository;
-    private CustomerMapper customerMapper;
+    private final CustomerMapper customerMapper;
 
     public CustomerService(CustomerRepository customerRepository, CustomerMapper customerMapper) {
         this.customerRepository = customerRepository;
@@ -34,7 +35,11 @@ public class CustomerService {
     }
 
     public List<CustomerDTO> getListOfCustomers() {
-        return customerRepository.getCustomers();
+        return customerMapper.toDTO(customerRepository.getCustomers());
+    }
+
+    public CustomerDTO getCustomerById(String id) {
+        return customerMapper.toDTO(customerRepository.findCustomerById(id).orElseThrow(() -> new IdDoesNotExistsException("Customer id not found.")));
     }
 
 

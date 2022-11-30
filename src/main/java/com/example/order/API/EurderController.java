@@ -1,6 +1,7 @@
 package com.example.order.API;
 
 import com.example.order.repository.DTO.CreateCustomerDTO;
+import com.example.order.repository.DTO.CustomerDTO;
 import com.example.order.repository.DTO.ItemDTO;
 import com.example.order.repository.DTO.UpdateItemDTO;
 import com.example.order.service.items.ItemService;
@@ -22,7 +23,7 @@ public class EurderController {
         this.itemService = itemService;
     }
 
-    @PostMapping(path = "/registerCustomer", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/customers", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public String createCustomer(@RequestBody CreateCustomerDTO customerToCreate) {
         return customerService.createCustomer(customerToCreate);
@@ -44,5 +45,17 @@ public class EurderController {
     @ResponseStatus(HttpStatus.OK)
     public List<ItemDTO> getListOfAllItems(){
         return itemService.getAllItems();
+    }
+
+    @GetMapping(path = "/customers", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public List<CustomerDTO> getListOfAllCustomers(){
+        return customerService.getListOfCustomers();
+    }
+
+    @GetMapping(path = "/customers/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public CustomerDTO findCustomerById(@PathVariable String id){
+        return customerService.getCustomerById(id);
     }
 }

@@ -7,14 +7,14 @@ public class Item {
     private final String name;
     private String description;
     private int price;
-    private int amount;
+    private int stockAmount;
 
-    public Item(String name, String description, int price, int amount) {
+    public Item(String name, String description, int price, int stockAmount) {
         this.itemId = UUID.randomUUID().toString();;
         this.name = name;
         this.description = description;
         this.price = price;
-        this.amount = amount;
+        this.stockAmount = stockAmount;
     }
 
     public String getItemId() {
@@ -33,8 +33,8 @@ public class Item {
         return price;
     }
 
-    public int getAmount() {
-        return amount;
+    public int getStockAmount() {
+        return stockAmount;
     }
 
     public void setDescription(String description) {
@@ -45,7 +45,7 @@ public class Item {
         this.price = price;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setStockAmount(int stockAmount) {
+        this.stockAmount = stockAmount;
     }
 }

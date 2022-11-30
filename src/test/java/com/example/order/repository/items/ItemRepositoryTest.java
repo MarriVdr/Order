@@ -75,6 +75,6 @@ class ItemRepositoryTest {
         Assertions.assertEquals(item1.getName(), item.getName());
         Assertions.assertEquals("Hi", item.getDescription());
         Assertions.assertEquals(5, item.getPrice());
-        Assertions.assertEquals(6, item.getAmount());
+        Assertions.assertEquals(6, item.getStockAmount());
     }
 }

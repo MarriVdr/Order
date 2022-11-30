@@ -9,14 +9,14 @@ public class ItemDTO {
     private final String name;
     private final String description;
     private int price;
-    private int amount;
+    private int stockAmount;
 
-    public ItemDTO(String id, String name, String description, int price, int amount) {
+    public ItemDTO(String id, String name, String description, int price, int stockAmount) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
-        this.amount = amount;
+        this.stockAmount = stockAmount;
     }
 
     public String getId() {
@@ -33,8 +33,8 @@ public class ItemDTO {
         return price;
     }
 
-    public int getAmount() {
-        return amount;
+    public int getStockAmount() {
+        return stockAmount;
     }
 
     @Override
@@ -42,11 +42,11 @@ public class ItemDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ItemDTO itemDTO = (ItemDTO) o;
-        return price == itemDTO.price && amount == itemDTO.amount && Objects.equals(name, itemDTO.name) && Objects.equals(description, itemDTO.description);
+        return price == itemDTO.price && stockAmount == itemDTO.stockAmount && Objects.equals(id, itemDTO.id) && Objects.equals(name, itemDTO.name) && Objects.equals(description, itemDTO.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, price, amount);
+        return Objects.hash(id, name, description, price, stockAmount);
     }
 }

@@ -13,10 +13,10 @@ public class CustomerMapper {
 
 
 
-//    public Customer mapToCustomer(CreateCustomerDTO customerToCreate) {
-//        return new Customer(customerToCreate.getFirstName(), customerToCreate.getLastName(), customerToCreate.getEmail(),
-//                customerToCreate.getAddress(), customerToCreate.getPhoneNumber(), customerToCreate.getPassword());
-//    }
+    public Customer mapToCustomer(CreateCustomerDTO customerToCreate) {
+        return new Customer(customerToCreate.getFirstName(), customerToCreate.getLastName(), customerToCreate.getEmail(),
+                customerToCreate.getAddress(), customerToCreate.getPhoneNumber(), customerToCreate.getPassword());
+    }
 
     public CustomerDTO toDTO(Customer customer){
         return new CustomerDTO(customer.getCustomerId(), customer.getFirstName(), customer.getLastName(), customer.getEmail(),
@@ -24,7 +24,7 @@ public class CustomerMapper {
                 customer.getPhoneNumber());
     }
 
-    public List<CustomerDTO> toDTOList(List<Customer> customers){
+    public List<CustomerDTO> toDTO(List<Customer> customers){
         return customers.stream()
                 .map(this::toDTO)
                 .toList();

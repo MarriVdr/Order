@@ -1,10 +1,12 @@
 package com.example.order.repository.users;
 
+import com.example.order.repository.items.Item;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Repository
 public class CustomerRepository {
@@ -24,6 +26,10 @@ public class CustomerRepository {
 
     public void addCustomer(Customer customer) {
         customers.add(customer);
+    }
+
+    public Optional<Customer> findCustomerById(String id) {
+        return customers.stream().filter(customer -> customer.getCustomerId().equals(id)).findFirst();
     }
 
     @Override
