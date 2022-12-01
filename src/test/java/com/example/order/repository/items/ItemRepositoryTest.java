@@ -4,13 +4,12 @@ import com.example.order.exceptions.FieldIsEmptyException;
 import com.example.order.exceptions.ItemAlreadyExistsException;
 import com.example.order.repository.DTO.ItemDTO;
 import com.example.order.repository.DTO.UpdateItemDTO;
-import com.example.order.service.items.ItemMapper;
-import com.example.order.service.items.ItemService;
+import com.example.order.service.itemService.ItemMapper;
+import com.example.order.service.itemService.ItemService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 class ItemRepositoryTest {

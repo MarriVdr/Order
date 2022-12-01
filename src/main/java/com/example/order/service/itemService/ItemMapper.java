@@ -1,4 +1,4 @@
-package com.example.order.service.items;
+package com.example.order.service.itemService;
 
 import com.example.order.repository.DTO.ItemDTO;
 import com.example.order.repository.items.Item;

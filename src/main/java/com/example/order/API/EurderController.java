@@ -4,7 +4,7 @@ import com.example.order.repository.DTO.CreateCustomerDTO;
 import com.example.order.repository.DTO.CustomerDTO;
 import com.example.order.repository.DTO.ItemDTO;
 import com.example.order.repository.DTO.UpdateItemDTO;
-import com.example.order.service.items.ItemService;
+import com.example.order.service.itemService.ItemService;
 import com.example.order.service.users.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

@@ -1,4 +1,4 @@
-package com.example.order.service.items;
+package com.example.order.service.itemService;
 
 import com.example.order.exceptions.FieldIsEmptyException;
 import com.example.order.exceptions.IdDoesNotExistsException;
@@ -40,7 +40,6 @@ public class ItemService {
     public ItemDTO getItemById(String id){
         return itemMapper.toDTO(itemRepository.findItemById(id).orElseThrow(() -> new IdDoesNotExistsException("Item with id " + id + " does not exist.")));
     }
-
 
     public ItemDTO updateItem(String id, UpdateItemDTO itemToUpdate) {
         Optional<Item> item = itemRepository.findItemById(id);

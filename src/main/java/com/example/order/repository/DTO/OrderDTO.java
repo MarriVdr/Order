@@ -1,34 +1,9 @@
 package com.example.order.repository.DTO;
 
-import java.time.LocalDate;
+import com.example.order.repository.orders.ItemGroup;
 
-public class OrderDTO {
-    private final int orderNumber;
-    private final String itemId;
-    private final int amount;
-    private final LocalDate localDate;
+import java.util.List;
 
-    public OrderDTO(int orderNumber, String itemId, int amount, LocalDate localDate) {
-        this.orderNumber = orderNumber;
-        this.itemId = itemId;
-        this.amount = amount;
-        this.localDate = localDate;
+public record OrderDTO(int orderNumber, List<ItemGroup> itemGroups) {
 
-    }
-
-    public int getOrderNumber() {
-        return orderNumber;
-    }
-
-    public String getItemId() {
-        return itemId;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public LocalDate getLocalDate() {
-        return localDate;
-    }
 }
