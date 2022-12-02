@@ -14,19 +14,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/eurder")
-public class EurderController {
-    private CustomerService customerService;
+public class OrderController {
+
     private ItemService itemService;
 
-    public EurderController(CustomerService customerService, ItemService itemService) {
-        this.customerService = customerService;
+    public OrderController(ItemService itemService) {
         this.itemService = itemService;
-    }
-
-    @PostMapping(path = "/customers", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.CREATED)
-    public String createCustomer(@RequestBody CreateCustomerDTO customerToCreate) {
-        return customerService.createCustomer(customerToCreate);
     }
 
     @PostMapping(path = "/items", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -47,15 +40,5 @@ public class EurderController {
         return itemService.getAllItems();
     }
 
-    @GetMapping(path = "/customers", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.OK)
-    public List<CustomerDTO> getListOfAllCustomers(){
-        return customerService.getListOfCustomers();
-    }
 
-    @GetMapping(path = "/customers/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.OK)
-    public CustomerDTO findCustomerById(@PathVariable String id){
-        return customerService.getCustomerById(id);
-    }
 }

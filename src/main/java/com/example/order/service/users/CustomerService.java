@@ -22,7 +22,7 @@ public class CustomerService {
         this.customerMapper = customerMapper;
     }
 
-    public String createCustomer(CreateCustomerDTO customerToCreate) {
+    public CustomerDTO createCustomer(CreateCustomerDTO customerToCreate) {
         if (customerToCreate.getEmail() == null) {
             throw new FieldIsEmptyException("Please enter a valid email.");
         }
@@ -31,7 +31,8 @@ public class CustomerService {
         }
         Customer customer = customerMapper.mapToCustomer(customerToCreate);
         customerRepository.addCustomer(customer);
-        return "Registration successful.";
+        return customerMapper.toDTO(customer);
+
     }
 
     public List<CustomerDTO> getListOfCustomers() {
